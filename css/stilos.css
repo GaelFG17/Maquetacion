@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url('../src/logo2.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas: 
+    'logo logo  es  menu menu  menu  menu'
+    'logo logo  es  menu menu  menu  menu'
+    'pr   pr    pr  pr   pr    pr2   pr2'
+    'pr   pr    pr  pr   pr    pr2   pr2'
+    'pr   pr    pr  pr   pr    pr2   pr2'
+    ;
+    margin: auto;
+    text-align: center;
+    gap: 3px;
+    background: transparent;
+    width: auto;
+    height: auto;
+}
+
+.es {
+    grid-area: es;
+}
+
+.logo {
+    grid-area: logo;
+    margin-left: 17px;
+}
+
+.logo img {
+    height: 6em; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.menu{
+    display: flex;
+    grid-area: menu;
+    margin: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99; 
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin-left: 30px;
+    text-decoration: underline;
+}
+
+.menu ul li:first-child {
+    margin-left: 600px;
+}
+
+.menu ul li a {
+    position: relative;
+    font-size: 2.1em;
+    color: red;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: orange;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.menu ul li a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.menu ul li:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+.menu ul li a:hover {
+    color: blueviolet;
+}
+
+.presentacion {
+    grid-area: pr;
+    width: 30%;
+    height: 90%;
+    margin-left: 30px;
+    margin-top: 40px;
+    padding: 10px;
+    font-size: 1.3em;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    color: white;
+}
+
+p{
+    text-align: justify;
+}
+
+.imgleft img {
+    position: absolute;
+    z-index: 1;
+    top: 663px;
+    left: 145px;
+}
+
+.presentacion2 {
+    grid-area: pr2;
+    margin-top: 40px;
+    width: 55%;
+    height: 60%;
+    font-size: 1.3em;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    color: white;
+    padding: 15px;
+}
+
+@media screen and (min-width: 569px) and (max-width: 768px) {
+    .grid {
+        grid-template-areas: 
+        'logo logo logo'
+        'menu menu menu'
+        'pr   pr img'
+        'pr   pr img'
+        'pr2  pr2 pr2';
+    }
+
+    .menu ul li:first-child {
+        margin-left: 50px;
+    }
+
+    .presentacion{
+        width: 87%;
+    }
+
+    .presentacion2{
+        height: 77%;
+        margin-left: 33px;
+    }
+
+    .imgleft img {
+        margin-left: 90px;
+        z-index: 1;
+        grid-area: img;
+    }
+
+}
+
+@media screen and (min-width:769px) and (max-width:968px){
+    .grid {
+        grid-template-areas: 
+            'logo logo logo logo'
+            'menu menu menu menu'
+            'menu menu menu menu'
+            'pr   pr   pr2  pr2'
+            'img img   img  img';
+    }
+
+    .menu ul li {
+        margin-left: 20px;
+    }
+
+    .imgleft img {
+        grid-area: img;
+    }
+
+    .menu ul li:first-child {
+        margin-left: 150px;
+    }
+
+    .presentacion2{
+        width: 77%;
+        height: 77%;
+    }
+
+    .presentacion{
+        width: 77%;
+        height: 87%;
+    }
+}
+
+@media screen and (min-width:969px) and (max-width: 1024px) {
+    .grid {
+        grid-template-areas: 
+            'logo logo es menu menu menu menu'
+            'logo logo es menu menu menu menu'
+            'pr pr pr pr pr pr2 pr2'
+            'pr pr pr pr pr pr2 pr2'
+            'pr pr pr pr pr pr2 pr2';
+    }
+
+    .menu ul li:first-child {
+        margin-left: 50px;
+    }
+
+    .presentacion2{
+        width: 77%;
+        height: 83%;
+    }
+
+    .presentacion{
+        width: 77%;
+        height: 87%;
+    }
+}
